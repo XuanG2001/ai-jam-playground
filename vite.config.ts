@@ -9,29 +9,29 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+      includeAssets: ['music-note.svg'],
       manifest: {
         name: 'AI Jam Playground',
         short_name: 'AI Jam',
         description: '使用钢琴键盘、架子鼓即兴创作旋律，通过AI生成音乐',
-        theme_color: '#0f172a',
+        theme_color: '#a855f7',
         background_color: '#0f172a',
         display: 'standalone',
         icons: [
           {
-            src: '/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
+            src: '/music-note.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
+            purpose: 'any maskable'
           }
-        ]
-      }
+        ],
+        start_url: '/'
+      },
+      strategies: 'generateSW',
+      disable: process.env.NODE_ENV === 'development'
     })
   ],
+  root: '.',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
