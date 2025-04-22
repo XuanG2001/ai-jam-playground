@@ -1,0 +1,46 @@
+####################
+# 1. 构建与发布目录
+####################
+[build]
+  command = "npm run build"   # 对应 package.json -> "build": "tsc && vite build"
+  publish = "dist"            # vite 默认输出目录
+
+####################
+# 2. 运行时路由规则
+####################
+
+# 2‑A  先写 /api/* 代理（必须放在 catch‑all 前面）
+[[redirects]]
+  from = "/api/*"
+  to   = "https://apibox.erweima.ai/api/:splat"
+  status = 200
+  force  = true               # 强制覆盖同路径静态文件
+  headers = { X-From = "Netlify" }
+
+# 2‑B  SPA 二级路由回退
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
+
+####################
+# 3. 可选的自定义 header
+####################
+# Netlify 默认就会把 .js / .mjs 设成 text/javascript，
+# .svg 也是 image/svg+xml，所以这段完全可以省。
+# 真要自定义，再保留也行——写在末尾即可。
+
+# [[headers]]
+#   for = "/*.js"
+#   [headers.values]
+#     Content-Type = "text/javascript"
+
+# [[headers]]
+#   for = "/*.mjs"
+#   [headers.values]
+#     Content-Type = "text/javascript"
+
+# [[headers]]
+#   for = "/*.svg"
+#   [headers.values]
+#     Content-Type = "image/svg+xml"
