@@ -7,9 +7,9 @@
     }
   },
   "env": {
-    "VITE_SUNO_API_KEY": "@vite_suno_api_key"
+    "VITE_SUNO_API_KEY": "6513727166e0475cd8235bb6b71dac69"
   },
-  "buildCommand": "npm run build",
+  "buildCommand": "bash build.sh",
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
