@@ -1,4 +1,17 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
+// 使用自定义类型
+import type { IncomingMessage, ServerResponse } from 'http';
+
+interface VercelRequest extends IncomingMessage {
+  query: { [key: string]: string | string[] };
+  cookies: { [key: string]: string };
+  body: any;
+}
+
+interface VercelResponse extends ServerResponse {
+  status(statusCode: number): VercelResponse;
+  send(body: any): VercelResponse;
+  json(jsonBody: any): VercelResponse;
+}
 
 const SUNO_API_URL = 'https://apibox.erweima.ai/api/v1/generate/extend';
 const SUNO_API_KEY = process.env.VITE_SUNO_API_KEY;
