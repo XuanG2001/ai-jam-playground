@@ -9,7 +9,7 @@
   "env": {
     "VITE_SUNO_API_KEY": "6513727166e0475cd8235bb6b71dac69"
   },
-  "buildCommand": "npx tsc && npx vite build",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
