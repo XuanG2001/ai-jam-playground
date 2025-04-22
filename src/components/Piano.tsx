@@ -58,7 +58,6 @@ const Piano = () => {
   
   const playNote = (key: string) => {
     const noteName = KEYBOARD_MAPPING[key as keyof typeof KEYBOARD_MAPPING];
-    const noteFreq = NOTES[noteName as keyof typeof NOTES];
     
     synth.current?.triggerAttack(noteName);
     

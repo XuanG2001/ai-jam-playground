@@ -49,7 +49,7 @@ function App() {
         <div className="md:w-1/3">
           <ControlPanel 
             activeInstrument={activeInstrument}
-            isGenerating={isGenerating}
+            _isGenerating={isGenerating}
             setIsGenerating={setIsGenerating}
             setAudioUrl={setAudioUrl}
           />

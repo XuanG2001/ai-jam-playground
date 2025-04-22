@@ -29,7 +29,6 @@ const Player = ({ audioUrl, isGenerating }: PlayerProps) => {
         height: 60,
         barRadius: 2,
         normalize: true,
-        responsive: true,
         fillParent: true,
       });
       

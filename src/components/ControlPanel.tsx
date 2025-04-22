@@ -12,14 +12,14 @@ import { Loader2, Music, Download } from 'lucide-react';
 
 interface ControlPanelProps {
   activeInstrument: InstrumentType;
-  isGenerating: boolean;
+  _isGenerating: boolean;
   setIsGenerating: (value: boolean) => void;
   setAudioUrl: (url: string | null) => void;
 }
 
 const ControlPanel = ({
   activeInstrument,
-  isGenerating,
+  _isGenerating,
   setIsGenerating,
   setAudioUrl
 }: ControlPanelProps) => {
